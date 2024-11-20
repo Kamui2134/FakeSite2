@@ -1,23 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Help</title>
-    <link rel="stylesheet" href="./assets/css/main.css">
-    <link rel="manifest" href="manifest.json">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-</head>
-<body>
-    <header class="header">
-
-    </header>
-    <main class="main">
-
-    </main>
-    <footer class="footer">
-
-    </footer>
-    <script src="./assets/js/index.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Game Help</title>
+		<link rel="stylesheet" href="./assets/css/main.css" />
+		<link rel="manifest" href="manifest.json" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<header class="header">
+			<div class="header__container">
+				<img class="header__logo" src="./assets/images/logo.svg" alt="logo" />
+				<div class="header__navigation">
+					<nav class="header__nav">
+						<a class="header__nav-link" href="./index.html">Home</a>
+						<a class="header__nav-link" href="#blog">Blog</a>
+						<a class="header__nav-link" href="#">Contact Us</a>
+					</nav>
+					<div class="header__special-buttons">
+						<button
+							onclick="navigator.share({title: document.title, url: window.location.href});"
+							class="header__special-button"
+						>
+							<img
+								class="header__special-icon"
+								src="./assets/images/icons/share.svg"
+								alt="share"
+							/>
+						</button>
+						<button onclick="window.print()" class="header__special-button">
+							<img
+								class="header__special-icon"
+								src="./assets/images/icons/download.svg"
+								alt="download"
+							/>
+						</button>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main class="main">
+            <div class="hero">
+                
+            </div>
+        </main>
+		<footer class="footer"></footer>
+		<script>
+			for (let a of [...document.querySelectorAll('a')]) {
+				// Проверяем, если ссылка имеет класс 'nav__nav-link', то её не изменяем
+				if (a.classList.contains('header__nav-link')) {
+					continue
+				}
+				// Проверяем, если ссылка имеет класс 'nav__nav-link', то её не изменяем
+				if (a.classList.contains('learn-link')) {
+					continue
+				}
+				// Добавляем параметры запроса к остальным ссылкам
+				a.href +=
+					(a.href.includes('?') ? '&' : '?') +
+					document.location.search.substr(1)
+			}
+		</script>
+		<script src="./assets/js/index.js"></script>
+	</body>
 </html>
